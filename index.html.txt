@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immo pour vous</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  color:#222;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  border-bottom:1px solid #eee;
+}
+
+nav a {
+  margin:0 10px;
+  text-decoration:none;
+  color:#333;
+}
+
+.btn {
+  background:#0b5ed7;
+  color:#fff;
+  padding:10px 16px;
+  border-radius:5px;
+  text-decoration:none;
+}
+
+.hero {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  padding:60px 20px;
+}
+
+.hero-text {
+  flex:1;
+}
+
+.hero img {
+  flex:1;
+  max-width:100%;
+  border-radius:10px;
+}
+
+.section {
+  padding:50px 20px;
+  text-align:center;
+}
+
+.grid {
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.card {
+  padding:20px;
+  border:1px solid #eee;
+  border-radius:10px;
+  min-width:250px;
+  max-width:300px;
+}
+
+.form input {
+  padding:10px;
+  margin:10px;
+  width:200px;
+}
+
+footer {
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <h2>Immo pour vous</h2>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#">Services</a>
+    <a href="#">Avis</a>
+    <a href="#">Contact</a>
+  </nav>
+  <a href="#contact" class="btn">Estimation gratuite</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Augmentez vos revenus locatifs sans stress</h1>
+    <p>Nous gérons votre bien immobilier à Casablanca de A à Z</p>
+    <a href="#contact" class="btn">Commencer</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa" alt="immobilier">
+</section>
+
+<!-- SECTION 1 -->
+<section class="section">
+  <h2>Vous avez ces problèmes ?</h2>
+  <div class="grid">
+    <div class="card">❌ Locataires difficiles</div>
+    <div class="card">❌ Perte de temps</div>
+    <div class="card">❌ Revenus faibles</div>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="section" style="background:#f5f5f5;">
+  <h2>Notre solution</h2>
+  <div class="grid">
+    <div class="card">📸 Photos professionnelles</div>
+    <div class="card">📢 Publication annonces</div>
+    <div class="card">🧹 Gestion complète</div>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="section">
+  <h2>Avis clients</h2>
+  <div class="grid">
+    <div class="card">⭐ +30% revenus</div>
+    <div class="card">⭐ Service excellent</div>
+    <div class="card">⭐ Très professionnel</div>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="section" style="background:#f5f5f5;">
+  <h2>Offre spéciale</h2>
+  <p>Estimation gratuite de votre bien en 2 minutes</p>
+  <a href="#contact" class="btn">Demander maintenant</a>
+</section>
+
+<!-- FORM -->
+<section class="section" id="contact">
+  <h2>Contactez-nous</h2>
+  <form class="form">
+    <input type="text" placeholder="Nom"><br>
+    <input type="tel" placeholder="Téléphone"><br>
+    <a href="https://wa.me/212600000000" class="btn">Envoyer sur WhatsApp</a>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Immo pour vous — <a href="#" style="color:#fff;">Privacy Policy</a>
+</footer>
+
+</body>
+</html>

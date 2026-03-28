@@ -6,30 +6,26 @@
     <title>Immo pour vous - Immobilier de Prestige au Maroc</title>
     
     <style>
-        /* --- VARIABLES DE COULEUR (CLASSE, NOIR ET ÉMERAUDE) --- */
         :root {
-            --bg-dark: #0a0a0a;          /* Noir Profond pour le fond */
-            --bg-card: #141414;          /* Noir légèrement plus clair pour les cartes */
-            --emeraude: #10b981;         /* Vert Émeraude Éclatant */
-            --emeraude-dark: #059669;    /* Vert Émeraude Sombre */
-            --text-main: #e5e7eb;        /* Gris très clair pour le texte */
-            --text-muted: #9ca3af;       /* Gris moyen pour les textes secondaires */
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --emeraude: #10b981;
+            --emeraude-dark: #059669;
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
             --white: #ffffff;
         }
 
         body {
             margin: 0;
-            font-family: 'Playfair Display', serif; /* Police Élégante pour les titres */
+            font-family: 'Playfair Display', serif;
             background-color: var(--bg-dark);
             color: var(--text-main);
             scroll-behavior: smooth;
         }
 
-        p, a, input, button, span {
-            font-family: 'Inter', sans-serif; /* Police Moderne pour le texte courant */
-        }
+        p, a, input, button, span { font-family: 'Inter', sans-serif; }
 
-        /* --- NAVIGATION --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -42,41 +38,12 @@
             z-index: 1000;
         }
 
-        /* --- LOGO (SVP STYLISÉ) --- */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-icon { width: 40px; height: 40px; }
+        .logo-text { color: var(--white); font-weight: 800; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 2px; }
+        .logo-text span { color: var(--emeraude); }
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-        }
-
-        .logo-text {
-            color: var(--white);
-            font-weight: 800;
-            font-size: 1.4rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .logo-text span {
-            color: var(--emeraude);
-            font-size: inherit;
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
+        nav a { margin: 0 15px; text-decoration: none; color: var(--text-muted); font-weight: 500; transition: 0.3s; }
         nav a:hover { color: var(--emeraude); }
 
         .btn {
@@ -86,189 +53,43 @@
             border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
-            transition: all 0.3s;
+            transition: 0.3s;
             display: inline-block;
-            border: none;
-            cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            border: none;
         }
 
-        .btn:hover {
-            background: var(--white);
-            transform: translateY(-2px);
-        }
+        .btn:hover { background: var(--white); transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 2px solid var(--emeraude); color: var(--emeraude); }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--emeraude);
-            color: var(--emeraude);
-        }
-
-        .btn-outline:hover {
-            background: var(--emeraude);
-            color: var(--bg-dark);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            padding: 100px 5%;
-            background: var(--bg-dark);
-            gap: 50px;
-        }
-
+        .hero { display: flex; flex-wrap: wrap; align-items: center; padding: 80px 5%; gap: 50px; }
         .hero-text { flex: 1; min-width: 320px; }
-        .hero-text span.subtitle { color: var(--emeraude); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; display: block; margin-bottom: 10px;}
         .hero-text h1 { font-size: 3.5rem; color: var(--white); line-height: 1.1; margin: 20px 0; }
-        .hero-text h1 span { color: var(--emeraude); font-size: inherit; text-transform: none; letter-spacing: normal; }
-        .hero-text p { font-size: 1.3rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; }
-        
-        .hero-img { 
-            flex: 1; 
-            min-width: 320px; 
-            border-radius: 4px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
-            width: 100%; 
-            object-fit: cover; 
-            height: 500px;
-            border: 1px solid rgba(255,255,255,0.03);
-        }
+        .hero-text h1 span { color: var(--emeraude); font-size: inherit; }
+        .hero-text p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; }
+        .hero-img { flex: 1; min-width: 320px; border-radius: 4px; height: 500px; object-fit: cover; border: 1px solid rgba(255,255,255,0.1); }
 
-        /* --- SECTION AGENT IMMOBILIER (NOUVEAU) --- */
-        .agent-section {
-            padding: 80px 5%;
-            background-color: var(--bg-card);
-            border-top: 1px solid rgba(255,255,255,0.03);
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
+        .agent-section { padding: 60px 5%; background: var(--bg-card); display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .agent-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 3px solid var(--emeraude); }
+        .agent-text { flex: 1; min-width: 300px; }
 
-        .agent-img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--emeraude);
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 60px 5%; }
+        .card { background: var(--bg-card); border-radius: 4px; overflow: hidden; transition: 0.4s; border: 1px solid rgba(255,255,255,0.05); }
+        .card:hover { transform: translateY(-10px); border-color: var(--emeraude); }
+        .card-img { width: 100%; height: 250px; object-fit: cover; transition: 0.6s; }
+        .card:hover .card-img { transform: scale(1.05); }
+        .card-content { padding: 25px; }
+        .location { color: var(--emeraude); font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+        .price { color: var(--white); font-weight: 800; font-size: 1.4rem; margin-top: 10px; }
 
-        .agent-text {
-            flex: 1;
-            min-width: 300px;
-        }
+        .contact-container { background: var(--bg-card); padding: 60px; text-align: center; margin: 40px 5%; border: 1px solid var(--emeraude-dark); }
+        .contact-container input { padding: 15px; margin: 10px; width: 80%; max-width: 400px; background: #000; border: 1px solid #333; color: #fff; }
 
-        .agent-text h2 { font-size: 2.5rem; color: var(--white); margin-bottom: 10px; }
-        .agent-text p.role { color: var(--emeraude); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; font-size: 1rem; }
-        .agent-text p.desc { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin-bottom: 30px; line-height: 1.6; }
-
-        /* --- SECTION BIENS --- */
-        .section { padding: 100px 5%; text-align: center; }
-        .section h2 { font-size: 2.8rem; margin-bottom: 15px; color: var(--white); }
-        .section p { color: var(--text-muted); font-size: 1.1rem; }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            transition: all 0.4s ease;
-            text-align: left;
-            border: 1px solid rgba(255,255,255,0.03);
-        }
-
-        .card:hover { 
-            transform: translateY(-10px) scale(1.02); 
-            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.1); 
-            border-color: rgba(16, 185, 129, 0.3);
-        }
-        
-        .card-img-container {
-            width: 100%;
-            height: 280px;
-            overflow: hidden;
-        }
-
-        .card-img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 0.6s ease;
-        }
-        
-        .card:hover .card-img {
-            transform: scale(1.1);
-        }
-
-        .card-content { padding: 30px; }
-        .card-content h3 { margin: 0 0 10px 0; font-size: 1.6rem; color: var(--white); }
-        .location { color: var(--emeraude); font-size: 0.9rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
-        .rating { color: #fbbf24; margin-bottom: 20px; letter-spacing: 3px; font-size: 0.8rem; }
-        .price { color: var(--white); font-weight: 800; font-size: 1.6rem; margin: 0; font-family: 'Inter', sans-serif; }
-
-        /* --- CONTACT SECTION --- */
-        .contact-container {
-            background: var(--bg-card);
-            color: var(--white);
-            padding: 80px 40px;
-            border-radius: 4px;
-            margin: 60px 5%;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            text-align: center;
-        }
-        
-        .contact-container h2 { font-size: 2.8rem; margin-bottom: 15px; }
-
-        .contact-container input {
-            padding: 18px;
-            margin: 10px;
-            width: 90%;
-            max-width: 450px;
-            border-radius: 4px;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(0,0,0,0.2);
-            color: var(--white);
-            font-size: 1rem;
-        }
-        
-        .contact-container input:focus {
-            outline: none;
-            border-color: var(--emeraude);
-        }
-
-        footer { background: #000; color: #555; text-align: center; padding: 50px; margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.03); }
-        footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; }
-        footer a:hover { color: var(--emeraude); }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1024px) {
-            .hero-text h1 { font-size: 2.8rem; }
-            .agent-section { text-align: center; justify-content: center; }
-            .agent-img { margin: 0 auto; }
-        }
-        @media (max-width: 768px) {
-            .hero-text h1 { font-size: 2.4rem; }
-            .hero { padding: 60px 5%; text-align: center; justify-content: center; }
-            .hero-text p { margin-left: auto; margin-right: auto; }
-            .hero-text div { justify-content: center; }
-            .hero-img { height: 350px; }
-        }
+        footer { padding: 40px; text-align: center; color: #555; border-top: 1px solid #222; }
     </style>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -276,127 +97,93 @@
 <header>
     <a href="#" class="logo-container">
         <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 5L15 35V85H35V60C35 57.2386 37.2386 55 40 55C42.7614 55 45 57.2386 45 60V85H85V35L50 5Z" fill="#10B981"/>
+            <path d="M50 5L15 35V85H85V35L50 5Z" fill="#10B981"/>
             <path d="M45 40C45 37.2386 47.2386 35 50 35C52.7614 35 55 37.2386 55 40C55 42.7614 52.7614 45 50 45C47.2386 45 45 42.7614 45 40Z" stroke="white" stroke-width="4"/>
-            <path d="M50 45V65M50 65H55" stroke="white" stroke-width="4" stroke-linecap="round"/>
         </svg>
         <h2 class="logo-text">Immo <span>pour vous</span></h2>
     </a>
-    <nav>
-        <a href="#amine">Votre Expert</a>
-        <a href="#biens">Collection</a>
-        <a href="#contact">Estimation</a>
-    </nav>
-    <a href="https://wa.me/212615602263?text=Bonjour%20Immo%20pour%20vous%2C%20je%20souhaite%20recevoir%20le%20catalogue%20des%20biens%20d%27exception." class="btn">WhatsApp</a>
+    <a href="https://wa.me/212615602263" class="btn">WhatsApp</a>
 </header>
 
 <section class="hero">
     <div class="hero-text">
-        <span class="subtitle">Expertise Immobilière Maroc</span>
-        <h1>Vendez ou Louez votre bien d'exception en <span>30 jours</span>.</h1>
-        <p>Photos professionnelles, multidiffusion internationale et réseau d'acheteurs qualifiés. Confiez-nous votre sérénité.</p>
-        
-        <div style="display:flex; gap:15px; flex-wrap:wrap;">
-            <a href="https://wa.me/212615602263?text=Bonjour%20Immo%20pour%20vous%2C%20je%20souhaite%20vendre/louer%20mon%20bien%20rapidement." class="btn">Vendre mon bien</a>
-            <a href="#biens" class="btn btn-outline">Voir la collection</a>
+        <h1>Vendez ou Louez votre bien en <span>30 jours</span>.</h1>
+        <p>Expertise luxe, photos professionnelles et réseau d'acheteurs internationaux.</p>
+        <div style="display:flex; gap:15px;">
+            <a href="https://wa.me/212615602263" class="btn">Vendre mon bien</a>
+            <a href="#biens" class="btn btn-outline">Catalogue</a>
         </div>
     </div>
-    <img src="https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?q=80&w=1200&auto=format&fit=crop" alt="Villa de Luxe Nuit" class="hero-img">
+    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1200&auto=format&fit=crop" class="hero-img" alt="Luxury Villa">
 </section>
 
-<section class="agent-section" id="amine">
-    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop&crop=faces" alt="Amine El Fassi - Agent Prestige" class="agent-img">
+<section class="agent-section">
+    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" class="agent-img" alt="Amine">
     <div class="agent-text">
-        <h2>Amine El Fassi</h2>
-        <p class="role">Votre Expert Prestige & Investissement</p>
-        <p class="desc">Spécialisé depuis 12 ans dans la gestion de propriétés haut de gamme au Maroc, Amine sélectionne personnellement chaque bien de notre collection privée. Il sera votre interlocuteur unique pour garantir la discrétion et le succès de votre transaction, qu'il s'agisse de vente ou de gestion locative.</p>
-        <a href="https://wa.me/212615602263?text=Bonjour%20Amine%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20bien%20d%27exception." class="btn">Contacter Amine</a>
+        <h2 style="color:white; margin:0;">Amine El Fassi</h2>
+        <p style="color:var(--emeraude); font-weight:bold; margin-top:5px;">Expert Prestige</p>
+        <p style="color:var(--text-muted);">Spécialiste de l'immobilier haut de gamme au Maroc. Je vous accompagne pour une transaction rapide et discrète.</p>
+        <a href="https://wa.me/212615602263" class="btn" style="padding: 10px 20px; font-size: 0.7rem;">Contacter Amine</a>
     </div>
 </section>
 
-<section class="section" id="biens">
-    <h2>La Collection Privée</h2>
-    <p>Une sélection rigoureuse des plus belles adresses du Royaume.</p>
-    
-    <div class="grid">
-        <div class="card">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1590714418712-49666e60b7b1?q=80&w=600&auto=format&fit=crop" class="card-img" alt="Marrakech">
-            </div>
-            <div class="card-content">
-                <p class="location">Marrakech</p>
-                <h3>Palais Palmeraie</h3>
-                <div class="rating">★★★★★</div>
-                <p class="price">12.500.000 MAD</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1613977257363-b901655b3294?q=80&w=600&auto=format&fit=crop" class="card-img" alt="Casablanca">
-            </div>
-            <div class="card-content">
-                <p class="location">Casablanca</p>
-                <h3>Villa California</h3>
-                <div class="rating">★★★★★</div>
-                <p class="price">18.900.000 MAD</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1549103987-a35928d1dfc1?q=80&w=600&auto=format&fit=crop" class="card-img" alt="Fès">
-            </div>
-            <div class="card-content">
-                <p class="location">Fès</p>
-                <h3>Riad Dar El Bacha</h3>
-                <div class="rating">★★★★★</div>
-                <p class="price">8.200.000 MAD</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img-container">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/7257202216964095505_0" class="card-img" alt="Rabat">
-            </div>
-            <div class="card-content">
-                <p class="location">Rabat</p>
-                <h3>Résidence Émeraude</h3>
-                <div class="rating">★★★★★</div>
-                <p class="price">Sur demande</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img-container">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/1061744040786065693_0" class="card-img" alt="Bouskoura">
-            </div>
-            <div class="card-content">
-                <p class="location">Bouskoura</p>
-                <h3>Pavillon Golf</h3>
-                <div class="rating">★★★★★</div>
-                <p class="price">Sur demande</p>
-            </div>
+<div class="grid" id="biens">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=800&auto=format&fit=crop" class="card-img" alt="Marrakech">
+        <div class="card-content">
+            <p class="location">Marrakech - Palmeraie</p>
+            <h3>Palais Palmeraie</h3>
+            <p class="price">12.500.000 MAD</p>
         </div>
     </div>
-</section>
-
-<section class="section" id="contact">
-    <div class="contact-container">
-        <h2>Confiez-nous votre bien</h2>
-        <p>Estimation gratuite, discrète et sans engagement sous 24h.</p>
-        <form>
-            <input type="text" placeholder="Votre Nom Complet" required><br>
-            <input type="tel" placeholder="Votre Numéro de Téléphone" required><br>
-            <button type="submit" class="btn" style="margin-top:30px;">Recevoir mon estimation maintenant</button>
-        </form>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1613977257363-b901655b3294?q=80&w=800&auto=format&fit=crop" class="card-img" alt="Casablanca">
+        <div class="card-content">
+            <p class="location">Casablanca - California</p>
+            <h3>Villa California</h3>
+            <p class="price">18.900.000 MAD</p>
+        </div>
     </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1549103987-a35928d1dfc1?q=80&w=800&auto=format&fit=crop" class="card-img" alt="Fès">
+        <div class="card-content">
+            <p class="location">Fès - Médina</p>
+            <h3>Riad Dar El Bacha</h3>
+            <p class="price">8.200.000 MAD</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop" class="card-img" alt="Rabat">
+        <div class="card-content">
+            <p class="location">Rabat - Ambassadeurs</p>
+            <h3>Résidence Émeraude</h3>
+            <p class="price">Sur demande</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6199f7d209?q=80&w=800&auto=format&fit=crop" class="card-img" alt="Bouskoura">
+        <div class="card-content">
+            <p class="location">Bouskoura - Ville Verte</p>
+            <h3>Pavillon Golf</h3>
+            <p class="price">Sur demande</p>
+        </div>
+    </div>
+</div>
+
+<section class="contact-container" id="contact">
+    <h2 style="color:white;">Confiez-nous votre bien</h2>
+    <p style="color:var(--text-muted);">Estimation gratuite sous 24h.</p>
+    <form action="https://wa.me/212615602263">
+        <input type="text" placeholder="Nom Complet" required><br>
+        <button type="submit" class="btn" style="margin-top:20px;">Recevoir mon estimation</button>
+    </form>
 </section>
 
 <footer>
-    © 2026 Immo pour vous — Casablanca, Maroc <br><br>
-    <a href="#">Mentions Légales</a> | <a href="#">Politique de Confidentialité</a>
+    © 2026 Immo pour vous — Casablanca, Maroc
 </footer>
 
 </body>
 </html>
+               
+

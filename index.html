@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immo pour vous - Gestion Immobilière d'Exception</title>
-
+    <title>Immo pour vous - Vendez ou Louez en 30 jours</title>
+    
     <style>
         :root {
             --emeraude: #10b981;
             --emeraude-dark: #059669;
             --dark: #111827;
+            --gray: #6b7280;
+            --light-bg: #f9fafb;
         }
 
         body {
             margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light-bg);
             color: #333;
-            line-height: 1.6;
-            background-color: #f9fafb;
+            scroll-behavior: smooth;
         }
 
+        /* --- NAVIGATION --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -37,6 +40,8 @@
             font-weight: 800;
             font-size: 1.5rem;
             margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav a {
@@ -53,15 +58,24 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: all 0.3s;
             display: inline-block;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
             background: var(--emeraude-dark);
+            transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--emeraude);
+            color: var(--emeraude);
+        }
+
+        /* --- HERO SECTION (OPTION 3) --- */
         .hero {
             display: flex;
             flex-wrap: wrap;
@@ -71,55 +85,68 @@
             gap: 40px;
         }
 
-        .hero-text { flex: 1; min-width: 300px; }
-        .hero-text h1 { font-size: 2.8rem; color: var(--dark); line-height: 1.2; }
-        .hero-img { flex: 1; min-width: 300px; border-radius: 20px; box-shadow: 20px 20px 60px #d1d1d1; }
+        .hero-text { flex: 1; min-width: 320px; }
+        .hero-text span { color: var(--emeraude-dark); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+        .hero-text h1 { font-size: 3rem; color: var(--dark); line-height: 1.1; margin: 15px 0; }
+        .hero-text h1 span { color: var(--emeraude); font-size: inherit; text-transform: none; letter-spacing: normal; }
+        .hero-text p { font-size: 1.2rem; color: var(--gray); margin-bottom: 30px; max-width: 500px; }
+        .hero-img { flex: 1; min-width: 320px; border-radius: 20px; box-shadow: 20px 20px 60px rgba(0,0,0,0.1); width: 100%; object-fit: cover; height: 450px; }
 
-        /* Grille des Propriétés */
+        /* --- SECTION BIENS --- */
         .section { padding: 80px 5%; text-align: center; }
+        .section h2 { font-size: 2.2rem; margin-bottom: 10px; color: var(--dark); }
         
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
         .card {
             background: #fff;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
             text-align: left;
-            border-bottom: 4px solid var(--emeraude);
+            border-bottom: 5px solid var(--emeraude);
         }
 
-        .card:hover { transform: translateY(-10px); }
-        .card-img { width: 100%; height: 200px; object-fit: cover; background: #e5e7eb; }
-        .card-content { padding: 20px; }
-        .price { color: var(--emeraude-dark); font-weight: 800; font-size: 1.2rem; }
-        .rating { color: #fbbf24; margin: 10px 0; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .card-img { width: 100%; height: 250px; object-fit: cover; }
+        .card-content { padding: 25px; }
+        .card-content h3 { margin: 0 0 10px 0; font-size: 1.4rem; color: var(--dark); }
+        .location { color: var(--gray); font-size: 0.9rem; margin-bottom: 10px; }
+        .rating { color: #fbbf24; margin-bottom: 15px; letter-spacing: 2px; }
+        .price { color: var(--emeraude-dark); font-weight: 800; font-size: 1.4rem; margin: 0; }
 
-        /* Formulaire */
-        .form-container {
+        /* --- CONTACT SECTION --- */
+        .contact-container {
             background: var(--dark);
             color: #fff;
             padding: 60px 20px;
-            border-radius: 20px;
+            border-radius: 30px;
             margin: 40px 5%;
         }
 
-        .form-container input {
+        .contact-container input {
             padding: 15px;
             margin: 10px;
-            width: 80%;
+            width: 90%;
             max-width: 400px;
             border-radius: 8px;
             border: none;
+            font-size: 1rem;
         }
 
-        footer { background: #000; color: #777; text-align: center; padding: 40px; }
+        footer { background: #000; color: #666; text-align: center; padding: 40px; margin-top: 60px; }
+        footer a { color: #fff; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero { padding: 40px 5%; }
+        }
     </style>
 </head>
 
@@ -128,91 +155,34 @@
 <header>
     <h2 class="logo">Immo pour vous</h2>
     <nav>
-        <a href="#biens">Nos Biens</a>
-        <a href="#contact">Contact</a>
+        <a href="#biens">Catalogue</a>
+        <a href="#contact">Estimation</a>
     </nav>
-    <a href="https://wa.me/212600000000" class="btn">WhatsApp</a>
+    <a href="https://wa.me/212600000000?text=Bonjour%20Immo%20pour%20vous%2C%20je%20souhaite%20recevoir%20le%20catalogue%20des%20biens%20d%27exception." class="btn">WhatsApp</a>
 </header>
 
 <section class="hero">
     <div class="hero-text">
-        <h1>L'excellence immobilière au Maroc</h1>
-        <p>Découvrez notre sélection exclusive de villas et riads de luxe. Gestion complète et sérénité garantie pour vos investissements.</p>
-        <a href="#contact" class="btn">Demander une estimation</a>
+        <span>Expertise Immobilière Maroc</span>
+        <h1>Vendez ou Louez votre bien d'exception en <span>30 jours</span>.</h1>
+        <p>Photos professionnelles, multidiffusion internationale et réseau d'acheteurs qualifiés. Confiez-nous votre sérénité.</p>
+        
+        <div style="display:flex; gap:15px; flex-wrap:wrap;">
+            <a href="https://wa.me/212600000000?text=Bonjour%20Immo%20pour%20vous%2C%20je%20souhaite%20vendre/louer%20mon%20bien%20rapidement." class="btn">Vendre mon bien</a>
+            <a href="#biens" class="btn btn-outline">Voir le catalogue</a>
+        </div>
     </div>
-    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" alt="Villa de luxe" class="hero-img">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6199f7d209?q=80&w=1000&auto=format&fit=crop" alt="Villa Moderne Maroc" class="hero-img">
 </section>
 
 <section class="section" id="biens">
     <h2>Nos Propriétés d'Exception</h2>
+    <p style="color:var(--gray)">Une sélection rigoureuse des plus belles adresses du Royaume.</p>
+    
     <div class="grid">
         <div class="card">
-            <div class="card-img" style="background: #ddd;"></div>
+            <img src="https://images.unsplash.com/photo-1590714418712-49666e60b7b1?q=80&w=600&auto=format&fit=crop" class="card-img" alt="Marrakech">
             <div class="card-content">
                 <h3>Palais Palmeraie</h3>
-                <p>📍 Marrakech</p>
+                <p class="location">📍 Marrakech</p>
                 <div class="rating">★★★★★</div>
-                <p class="price">12.500.000 MAD</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img" style="background: #ccc;"></div>
-            <div class="card-content">
-                <h3>Villa California</h3>
-                <p>📍 Casablanca</p>
-                <div class="rating">★★★★★</div>
-                <p class="price">18.900.000 MAD</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img" style="background: #bbb;"></div>
-            <div class="card-content">
-                <h3>Riad Dar El Bacha</h3>
-                <p>📍 Fès</p>
-                <div class="rating">★★★★★</div>
-                <p class="price">8.200.000 MAD</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/7257202216964095505_0" class="card-img" alt="Rabat">
-            <div class="card-content">
-                <h3>Résidence Émeraude</h3>
-                <p>📍 Rabat</p>
-                <div class="rating">★★★★★</div>
-                <p class="price">Prix sur demande</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/1061744040786065693_0" class="card-img" alt="Bouskoura">
-            <div class="card-content">
-                <h3>Pavillon Golf</h3>
-                <p>📍 Bouskoura</p>
-                <div class="rating">★★★★★</div>
-                <p class="price">Prix sur demande</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section" id="contact">
-    <div class="form-container">
-        <h2>Une question ? Une estimation ?</h2>
-        <p>Laissez-nous vos coordonnées, nous vous rappelons sous 24h.</p>
-        <form>
-            <input type="text" placeholder="Votre Nom"><br>
-            <input type="tel" placeholder="Votre Téléphone"><br>
-            <button type="submit" class="btn" style="border:none; cursor:pointer; margin-top:10px;">Envoyer ma demande</button>
-        </form>
-    </div>
-</section>
-
-<footer>
-    © 2026 Immo pour vous — Casablanca, Maroc
-</footer>
-
-</body>
-</html>

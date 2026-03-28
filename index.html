@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immo pour vous - Vendez ou Louez en 30 jours</title>
+    <title>Immo pour vous - Prestige au Maroc</title>
     
     <style>
+        /* --- VARIABLES DE COULEUR (CLASSE, NOIR ET ÉMERAUDE) --- */
         :root {
-            --bg-dark: #0a0a0a;          /* Noir Fond */
-            --bg-card: #141414;          /* Noir Cartes */
-            --emeraude: #10b981;         /* Vert Principal */
-            --emeraude-dark: #059669;    /* Vert Sombre */
-            --text-main: #e5e7eb;        /* Gris Clair */
-            --text-muted: #9ca3af;       /* Gris Moyen */
+            --bg-dark: #0a0a0a;          /* Noir Profond pour le fond */
+            --bg-card: #141414;          /* Noir légèrement plus clair pour les sections */
+            --emeraude: #10b981;         /* Vert Émeraude Éclatant */
+            --text-main: #e5e7eb;        /* Gris très clair pour le texte */
+            --text-muted: #9ca3af;       /* Gris moyen pour les textes secondaires */
             --white: #ffffff;
         }
 
         body {
             margin: 0;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', serif; /* Police Élégante pour les titres */
             background-color: var(--bg-dark);
             color: var(--text-main);
             scroll-behavior: smooth;
         }
 
-        p, a, input, button, span { font-family: 'Inter', sans-serif; }
+        p, a, button, span, input, textarea {
+            font-family: 'Inter', sans-serif; /* Police Moderne pour le texte courant */
+        }
 
         /* --- NAVIGATION --- */
         header {
@@ -32,71 +34,242 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background: var(--bg-dark);
+            background: rgba(10, 10, 10, 0.95);
             border-bottom: 1px solid rgba(255,255,255,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
-        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-text { color: #fff; font-weight: 800; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 2px; }
-        .logo-text span { color: var(--emeraude); }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        /* Icône Logo SVG (Inclus directement dans le code pour la rapidité) */
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+        }
+
+        .logo-text {
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo-text span {
+            color: var(--emeraude);
+            font-size: inherit;
+        }
 
         .btn {
             background: var(--emeraude);
             color: var(--bg-dark);
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             border: none;
             cursor: pointer;
+            transition: 0.3s;
+            display: inline-block;
         }
 
-        .btn:hover { background: var(--white); transform: translateY(-2px); }
-        .btn-outline { background: transparent; border: 2px solid var(--emeraude); color: var(--emeraude); }
-
-        /* --- HERO --- */
-        .hero { display: flex; flex-wrap: wrap; align-items: center; padding: 80px 5%; gap: 50px; }
-        .hero-text { flex: 1; min-width: 320px; }
-        .hero-text h1 { font-size: 3.5rem; color: #fff; line-height: 1.1; margin: 20px 0; }
-        .hero-text h1 span { color: var(--emeraude); }
-        .hero-text p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; }
-        
-        .hero-img { 
-            flex: 1; min-width: 320px; border-radius: 8px; height: 450px; object-fit: cover; 
-            border: 1px solid rgba(255,255,255,0.1);
-            background: #111; /* Fond de secours */
+        .btn:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
         }
 
-        /* --- AGENT --- */
-        .agent-section { padding: 60px 5%; background: var(--bg-card); display: flex; align-items: center; gap: 40px; flex-wrap: wrap; margin: 20px 0;}
-        .agent-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid var(--emeraude); }
-        .agent-text { flex: 1; min-width: 300px; }
+        /* --- HERO SECTION (SANS IMAGE) --- */
+        .hero {
+            padding: 120px 5%;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(16, 185, 129, 0.1) 0%, rgba(10, 10, 10, 1) 70%);
+        }
 
-        /* --- BIENS --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 60px 5%; }
-        .card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid #222; transition: 0.4s; }
-        .card:hover { border-color: var(--emeraude); transform: translateY(-10px); }
-        
-        .card-img-container { width: 100%; height: 250px; background-color: #111; overflow: hidden; }
-        .card-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        
-        .card-content { padding: 25px; }
-        .location { color: var(--emeraude); font-weight: bold; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; }
-        .price { color: #fff; font-weight: 800; font-size: 1.4rem; margin-top: 15px; font-family: 'Inter', sans-serif;}
+        .hero h1 {
+            font-size: 4rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
 
-        /* --- CONTACT --- */
-        .contact-container { background: var(--bg-card); padding: 60px 40px; text-align: center; border: 1px solid var(--emeraude-dark); margin: 60px 5%; }
-        .contact-container input { padding: 15px; margin: 10px; width: 80%; max-width: 400px; background: #000; border: 1px solid #333; color: #fff; border-radius: 4px;}
+        .hero h1 span {
+            color: var(--emeraude);
+            font-size: inherit;
+        }
 
-        footer { padding: 40px; text-align: center; color: #444; border-top: 1px solid #222; }
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
 
-        @media (max-width: 768px) { .hero-text h1 { font-size: 2.5rem; } .hero { padding: 40px 5%; } }
+        /* --- COLLECTION (DESIGN TEXTUEL CLASSE) --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 80px 5%;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 4px;
+            padding: 40px;
+            border: 1px solid #222;
+            transition: 0.4s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 250px;
+        }
+
+        .card:hover {
+            border-color: var(--emeraude);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+        }
+
+        .location {
+            color: var(--emeraude);
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .price {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-top: 25px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* --- SECTION TÉMOIGNAGES --- */
+        .testimonials {
+            padding: 80px 5%;
+            background: var(--bg-card);
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testi-card {
+            background: var(--bg-dark);
+            padding: 30px;
+            border-radius: 4px;
+            border-left: 4px solid var(--emeraude);
+            text-align: left;
+        }
+
+        .testi-text {
+            font-style: italic;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .testi-author {
+            font-weight: bold;
+            color: var(--emeraude);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* --- SECTION CONTACT FORMULAIRE --- */
+        .contact-section {
+            padding: 100px 5%;
+            background-color: var(--bg-dark);
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-box {
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: 4px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .contact-box h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .contact-box p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 18px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--emeraude);
+            outline: none;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+        }
+
+        footer {
+            padding: 60px 5%;
+            text-align: center;
+            color: #444;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.1rem; }
+            .contact-box { padding: 30px; }
+            .card h3 { font-size: 1.8rem; }
+        }
     </style>
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -114,93 +287,75 @@
 </header>
 
 <section class="hero">
-    <div class="hero-text">
-        <span style="color:var(--emeraude); font-weight:bold; letter-spacing:2px; font-family:'Inter',sans-serif;">PRESTIGE</span>
-        <h1>Vendez votre bien en <span>30 jours</span>.</h1>
-        <p>Une expertise unique pour des propriétés d'exception au Maroc.</p>
-        <div style="display:flex; gap:15px; flex-wrap:wrap;">
-            <a href="https://wa.me/212615602263" class="btn">Estimation Gratuite</a>
-            <a href="#biens" class="btn btn-outline">Catalogue</a>
-        </div>
-    </div>
-    <img src="https://images.unsplash.com/photo-1600585154340-be6199f7d209?q=80&w=1200" class="hero-img" alt="Luxe">
-</section>
-
-<section class="agent-section">
-    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400" class="agent-img" alt="Amine">
-    <div class="agent-text">
-        <h2 style="color:white; margin:0;">Amine El Fassi</h2>
-        <p style="color:var(--emeraude); font-weight:bold; text-transform:uppercase; margin:5px 0;">Expert Prestige</p>
-        <p style="color:var(--text-muted);">Spécialiste de la transaction haute discrétion au Maroc.</p>
-        <a href="https://wa.me/212615602263" style="color:var(--emeraude); text-decoration:none; font-weight:bold; font-family:'Inter',sans-serif;">CONTACTER L'EXPERT →</a>
-    </div>
+    <span style="color:var(--emeraude); font-weight:bold; letter-spacing:3px; text-transform:uppercase;">Prestige & Discrétion</span>
+    <h1>Vendez votre bien en <span>30 jours</span>.</h1>
+    <p>Une expertise immobilière exclusive pour des propriétés d'exception au Maroc.</p>
+    <a href="#contact" class="btn">Estimer mon bien</a>
 </section>
 
 <div class="grid" id="biens">
     <div class="card">
-        <div class="card-img-container">
-            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=600" class="card-img" alt="Marrakech">
-        </div>
-        <div class="card-content">
-            <p class="location">Marrakech</p>
-            <h3>Palais Palmeraie</h3>
-            <p class="price">12.500.000 MAD</p>
-        </div>
+        <p class="location">Marrakech</p>
+        <h3>Palais Palmeraie</h3>
+        <p class="price">12.500.000 MAD</p>
     </div>
+
     <div class="card">
-        <div class="card-img-container">
-            <img src="https://images.unsplash.com/photo-1613977257363-b901655b3294?q=80&w=600" class="card-img" alt="Casablanca">
-        </div>
-        <div class="card-content">
-            <p class="location">Casablanca</p>
-            <h3>Villa California</h3>
-            <p class="price">18.900.000 MAD</p>
-        </div>
+        <p class="location">Casablanca</p>
+        <h3>Villa California</h3>
+        <p class="price">18.900.000 MAD</p>
     </div>
+
     <div class="card">
-        <div class="card-img-container">
-            <img src="https://images.unsplash.com/photo-1549103987-a35928d1dfc1?q=80&w=600" class="card-img" alt="Fès">
-        </div>
-        <div class="card-content">
-            <p class="location">Fès</p>
-            <h3>Riad Dar El Bacha</h3>
-            <p class="price">8.200.000 MAD</p>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-img-container">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600" class="card-img" alt="Rabat">
-        </div>
-        <div class="card-content">
-            <p class="location">Rabat</p>
-            <h3>Résidence Émeraude</h3>
-            <p class="price">Sur demande</p>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-img-container">
-            <img src="https://images.unsplash.com/photo-1600607687940-4e524cb35a3a?q=80&w=600" class="card-img" alt="Bouskoura">
-        </div>
-        <div class="card-content">
-            <p class="location">Bouskoura</p>
-            <h3>Pavillon Golf</h3>
-            <p class="price">Sur demande</p>
-        </div>
+        <p class="location">Fès</p>
+        <h3>Riad Dar El Bacha</h3>
+        <p class="price">8.200.000 MAD</p>
     </div>
 </div>
 
-<section class="contact-container" id="contact">
-    <h2 style="color:white; margin:0; font-size:2.5rem;">Estimation Rapide</h2>
-    <p style="color:var(--text-muted); margin:10px 0 30px;">Recevez votre valeur pro sous 24h.</p>
-    <form action="https://wa.me/212615602263">
-        <input type="text" placeholder="Nom Complet" required><br>
-        <button type="submit" class="btn" style="margin-top:20px;">Estimer mon bien</button>
-    </form>
+<section class="testimonials">
+    <h2 style="font-size: 2.8rem; color: #fff;">Ils nous font confiance</h2>
+    <div class="testimonial-grid">
+        <div class="testi-card">
+            <p class="testi-text">"Amine a vendu ma villa à California en moins de 3 semaines au prix demandé. Un professionnalisme rare."</p>
+            <p class="testi-author">M. Benjelloun, Casablanca</p>
+        </div>
+        <div class="testi-card">
+            <p class="testi-text">"Une discrétion absolue et un réseau d'acheteurs internationaux impressionnant. Je recommande vivement."</p>
+            <p class="testi-author">Mme. Alami, Marrakech</p>
+        </div>
+        <div class="testi-card">
+            <p class="testi-text">"L'estimation était juste et le suivi impeccable du début à la signature chez le notaire."</p>
+            <p class="testi-author">Dr. Idrissi, Rabat</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact-section" id="contact">
+    <div class="contact-box">
+        <h2>Une estimation ?</h2>
+        <p>Confiez-nous votre projet et recevez une étude de marché complète sous 24h.</p>
+        <form action="https://wa.me/212615602263">
+            <div class="form-group">
+                <input type="text" placeholder="Votre Nom Complet" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" placeholder="Votre Numéro WhatsApp" required>
+            </div>
+            <div class="form-group">
+                <textarea rows="5" placeholder="Description sommaire de votre bien (Ville, Quartier, Surface...)"></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%; font-size: 1rem;">Recevoir mon estimation maintenant</button>
+        </form>
+    </div>
 </section>
 
 <footer>
-    © 2026 Immo pour vous — Casablanca, Maroc
+    <h2 style="color: #fff; margin-bottom: 10px;">Immo <span>pour vous</span></h2>
+    <p>© 2026 Agence Immobilière de Prestige - Casablanca, Maroc</p>
+    <p style="font-size: 0.8rem; margin-top: 20px;">Expert Référent : Amine El Fassi - 0615602263</p>
 </footer>
 
 </body>
 </html>
+   
